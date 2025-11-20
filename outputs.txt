@@ -1,0 +1,216 @@
+--- JSON 1 ---
+{
+    "title": "The Cryptid Dancer",
+    "style": "Cinematic, High-Detail, 8K",
+    "cuts": [
+        {
+            "timestamp": "00:00-00:05",
+            "shot_type": "full body shot",
+            "description": "Fantastic grotesque oni nephilim in sunglasses and trenchcoat",
+            "sound": "upbeat electronic music",
+            "camera": {
+                "movement": "dynamic orbit",
+                "angle": "low angle"
+            },
+            "scene": {
+                "environment": "moonlit mossy clearing",
+                "props": "a single spotlight, ancient runes"
+            },
+            "character": {
+                "pose": "mid-action",
+                "expression": "intense focus",
+                "action": "breakdancing"
+            }
+        }
+    ]
+}
+
+--- JSON 2 ---
+{
+    "title": "The Cryptid Dancer",
+    "style": "Cinematic, High-Detail, 8K",
+    "cuts": [
+        {
+            "timestamp": "00:00-00:05",
+            "shot_type": "full body shot",
+            "description": "Fantastic grotesque oni nephilim in sunglasses and trenchcoat",
+            "sound": "upbeat electronic music",
+            "camera": {
+                "movement": "dynamic orbit",
+                "angle": "low angle"
+            },
+            "scene": {
+                "environment": "moonlit mossy clearing",
+                "props": "a single spotlight, ancient runes"
+            },
+            "character": {
+                "pose": "mid-action",
+                "expression": "intense focus",
+                "action": "capoeira"
+            }
+        }
+    ]
+}
+
+--- JSON 3 ---
+{
+    "title": "The Cryptid Dancer",
+    "style": "Cinematic, High-Detail, 8K",
+    "cuts": [
+        {
+            "timestamp": "00:00-00:05",
+            "shot_type": "full body shot",
+            "description": "Fantastic grotesque oni nephilim in sunglasses and trenchcoat",
+            "sound": "upbeat electronic music",
+            "camera": {
+                "movement": "dynamic orbit",
+                "angle": "low angle"
+            },
+            "scene": {
+                "environment": "underground eyeball-encrusted quartz temple interior",
+                "props": "a single spotlight, ancient runes"
+            },
+            "character": {
+                "pose": "mid-action",
+                "expression": "intense focus",
+                "action": "breakdancing"
+            }
+        }
+    ]
+}
+
+--- JSON 4 ---
+{
+    "title": "The Cryptid Dancer",
+    "style": "Cinematic, High-Detail, 8K",
+    "cuts": [
+        {
+            "timestamp": "00:00-00:05",
+            "shot_type": "full body shot",
+            "description": "Fantastic grotesque oni nephilim in sunglasses and trenchcoat",
+            "sound": "upbeat electronic music",
+            "camera": {
+                "movement": "dynamic orbit",
+                "angle": "low angle"
+            },
+            "scene": {
+                "environment": "underground eyeball-encrusted quartz temple interior",
+                "props": "a single spotlight, ancient runes"
+            },
+            "character": {
+                "pose": "mid-action",
+                "expression": "intense focus",
+                "action": "capoeira"
+            }
+        }
+    ]
+}
+
+--- JSON 5 ---
+{
+    "title": "The Cryptid Dancer",
+    "style": "Cinematic, High-Detail, 8K",
+    "cuts": [
+        {
+            "timestamp": "00:00-00:05",
+            "shot_type": "full body shot",
+            "description": "Hauntingly beautiful ethereal cryptid with diffused luminous moonstone antlers in dj headphones",
+            "sound": "upbeat electronic music",
+            "camera": {
+                "movement": "dynamic orbit",
+                "angle": "low angle"
+            },
+            "scene": {
+                "environment": "moonlit mossy clearing",
+                "props": "a single spotlight, ancient runes"
+            },
+            "character": {
+                "pose": "mid-action",
+                "expression": "intense focus",
+                "action": "breakdancing"
+            }
+        }
+    ]
+}
+
+--- JSON 6 ---
+{
+    "title": "The Cryptid Dancer",
+    "style": "Cinematic, High-Detail, 8K",
+    "cuts": [
+        {
+            "timestamp": "00:00-00:05",
+            "shot_type": "full body shot",
+            "description": "Hauntingly beautiful ethereal cryptid with diffused luminous moonstone antlers in dj headphones",
+            "sound": "upbeat electronic music",
+            "camera": {
+                "movement": "dynamic orbit",
+                "angle": "low angle"
+            },
+            "scene": {
+                "environment": "moonlit mossy clearing",
+                "props": "a single spotlight, ancient runes"
+            },
+            "character": {
+                "pose": "mid-action",
+                "expression": "intense focus",
+                "action": "capoeira"
+            }
+        }
+    ]
+}
+
+--- JSON 7 ---
+{
+    "title": "The Cryptid Dancer",
+    "style": "Cinematic, High-Detail, 8K",
+    "cuts": [
+        {
+            "timestamp": "00:00-00:05",
+            "shot_type": "full body shot",
+            "description": "Hauntingly beautiful ethereal cryptid with diffused luminous moonstone antlers in dj headphones",
+            "sound": "upbeat electronic music",
+            "camera": {
+                "movement": "dynamic orbit",
+                "angle": "low angle"
+            },
+            "scene": {
+                "environment": "underground eyeball-encrusted quartz temple interior",
+                "props": "a single spotlight, ancient runes"
+            },
+            "character": {
+                "pose": "mid-action",
+                "expression": "intense focus",
+                "action": "breakdancing"
+            }
+        }
+    ]
+}
+
+--- JSON 8 ---
+{
+    "title": "The Cryptid Dancer",
+    "style": "Cinematic, High-Detail, 8K",
+    "cuts": [
+        {
+            "timestamp": "00:00-00:05",
+            "shot_type": "full body shot",
+            "description": "Hauntingly beautiful ethereal cryptid with diffused luminous moonstone antlers in dj headphones",
+            "sound": "upbeat electronic music",
+            "camera": {
+                "movement": "dynamic orbit",
+                "angle": "low angle"
+            },
+            "scene": {
+                "environment": "underground eyeball-encrusted quartz temple interior",
+                "props": "a single spotlight, ancient runes"
+            },
+            "character": {
+                "pose": "mid-action",
+                "expression": "intense focus",
+                "action": "capoeira"
+            }
+        }
+    ]
+}
+
