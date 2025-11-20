@@ -1,127 +1,101 @@
 # Veo 3.1 Expressive JSON Prompt Generator (Cartesian Product Edition)
 
-This is the revised version of the `VeoJsonGenerator` class, updated to support the generation of **multiple JSON prompts** based on the **Cartesian product** of all set/list inputs. This allows for rapid A/B testing and exploration of the prompt space by combining every possible variant of your expressive inputs.
+This Python script provides a class, `VeoJsonGenerator`, designed to create structured JSON prompts compatible with Google Veo 3.1. It is specifically engineered to generate **multiple JSON prompts** based on the **Cartesian product** of all input variants, allowing for efficient A/B testing of expressive templates.
 
 ## Features
 
-*   **Cartesian Product Generation:** If any input field (e.g., `style`, `description`, `character.pose`) is provided as a `set` or `list`, the generator will create a unique JSON for every combination of those variants.
-*   **Structured Output:** Generates a list of multi-scene JSON strings, each one a complete, valid Veo 3.1 prompt.
-*   **Input Flexibility:** Supports single strings, content from `.txt` files, and collections (`set`/`list`) for expansion.
+*   **Cartesian Product Generation:** If any input field is provided as a collection (set/list) or a `.txt` file, the generator creates a unique JSON for every combination of those variants.
+*   **Flexible Input Handling:**
+    *   **Single Strings:** Used directly as the prompt value.
+    *   **Sets/Lists of Strings:** Each element is treated as a variant.
+    *   **`.txt` Filenames:** The file content is read, split by newlines, and each non-empty line is treated as a variant for the Cartesian product.
 
-## `veo_json_generator.py` - Key Changes
+## `veo_json_generator.py`
 
-The `generate_json()` method now returns a `List[str]`, where each string is a complete JSON prompt.
+The core logic is contained within the `VeoJsonGenerator` class. The `generate_json()` method returns a `List[str]`, where each string is a complete, unique JSON prompt.
 
-## Example Invocation (User-Specified Sets)
+## Final Example: The Cryptid Dancer
 
-This example demonstrates how a small number of variants can lead to a large number of generated JSONs.
+This example demonstrates the power of the Cartesian product using the provided `.txt` files.
 
-**Input Variants:**
-*   **Style:** 2 variants
-*   **Description:** 2 variants
-*   **Scene.environment:** 2 variants
-*   **Character.pose:** 2 variants
+### Input Files
 
-**Total JSONs Generated:** 2 (Style) * 2 (Desc) * 2 (Env) * 2 (Pose) = **16 JSONs**
+| File | Content (Variants) | Used For |
+| :--- | :--- | :--- |
+| `characters.txt` | 2 variants (oni nephilim, ethereal cryptid) | `description` |
+| `actions.txt` | 2 variants (breakdancing, capoeira) | `character.action` |
+| `scenes.txt` | 2 variants (mossy clearing, quartz temple) | `scene.environment` |
+
+**Total JSONs Generated:** $2 \times 2 \times 2 = 8$
+
+### Invocation
+
+The following code was used to generate the 8 unique JSON prompts:
 
 ```python
 from veo_json_generator import VeoJsonGenerator
 
-# User-specified sets
-genre_set = {'hauntingly beautiful, fantastic grotesque, eerie', 'kawaii horror, playful and whimsically dark'}
-    
-# Character set
-character_set = {
-    "pose": {'floating', 'cross-legged'},
-    "expression": "serene",
-    "action": "whispering a lullaby"
-}
-    
-# Scene set
-scene_set = {
-    "environment": {'abandoned amusement park', 'under a blood moon'},
-    "props": "a single, glowing carousel horse"
-}
+# Inputs are specified as filenames, which the generator automatically expands
+character_file = "characters.txt"
+action_file = "actions.txt"
+scene_file = "scenes.txt"
 
-generator_user = VeoJsonGenerator(
-    title="The Grotesque Lullaby",
-    style=genre_set
-)
-    
-description_set = {'a child-like figure', 'surrounded by overgrown vines'}
-camera_dict = {
-    "movement": "slow 360 degree orbit",
-    "angle": "high angle"
-}
-
-generator_user.add_single_scene(
-    description=description_set,
-    camera=camera_dict,
-    scene=scene_set,
-    character=character_set,
-    timestamp="00:00-00:07",
-    shot_type="wide shot",
-    sound="eerie music box melody"
+generator_final = VeoJsonGenerator(
+    title="The Cryptid Dancer",
+    style="Cinematic, High-Detail, 8K" # Single string style
 )
 
-generated_jsons = generator_user.generate_json()
-# generated_jsons will contain 16 unique JSON strings
+# The description, character.action, and scene.environment fields will be expanded
+generator_final.add_single_scene(
+    description=character_file, # Expanded from characters.txt
+    camera={
+        "movement": "dynamic orbit",
+        "angle": "low angle"
+    },
+    scene={
+        "environment": scene_file, # Expanded from scenes.txt
+        "props": "a single spotlight, ancient runes"
+    },
+    character={
+        "pose": "mid-action",
+        "expression": "intense focus",
+        "action": action_file # Expanded from actions.txt
+    },
+    timestamp="00:00-00:05",
+    shot_type="full body shot",
+    sound="upbeat electronic music"
+)
+
+generated_jsons = generator_final.generate_json()
+# generated_jsons will contain 8 unique JSON strings
 ```
 
-## Sample Output (JSON 1 of 16)
+### Sample Output (JSON 1 of 8)
+
+This is the first JSON from the generated `outputs.txt` file:
 
 ```json
 {
-    "title": "The Grotesque Lullaby",
-    "style": "kawaii horror, playful and whimsically dark",
+    "title": "The Cryptid Dancer",
+    "style": "Cinematic, High-Detail, 8K",
     "cuts": [
         {
-            "timestamp": "00:00-00:07",
-            "shot_type": "wide shot",
-            "description": "a child-like figure",
-            "sound": "eerie music box melody",
+            "timestamp": "00:00-00:05",
+            "shot_type": "full body shot",
+            "description": "Fantastic grotesque oni nephilim in sunglasses and trenchcoat",
+            "sound": "upbeat electronic music",
             "camera": {
-                "movement": "slow 360 degree orbit",
-                "angle": "high angle"
+                "movement": "dynamic orbit",
+                "angle": "low angle"
             },
             "scene": {
-                "environment": "abandoned amusement park",
-                "props": "a single, glowing carousel horse"
+                "environment": "moonlit mossy clearing",
+                "props": "a single spotlight, ancient runes"
             },
             "character": {
-                "pose": "floating",
-                "expression": "serene",
-                "action": "whispering a lullaby"
-            }
-        }
-    ]
-}
-```
-
-## Sample Output (JSON 16 of 16)
-
-```json
-{
-    "title": "The Grotesque Lullaby",
-    "style": "hauntingly beautiful, fantastic grotesque, eerie",
-    "cuts": [
-        {
-            "timestamp": "00:00-00:07",
-            "shot_type": "wide shot",
-            "description": "surrounded by overgrown vines",
-            "sound": "eerie music box melody",
-            "camera": {
-                "movement": "slow 360 degree orbit",
-                "angle": "high angle"
-            },
-            "scene": {
-                "environment": "abandoned amusement park",
-                "props": "a single, glowing carousel horse"
-            },
-            "character": {
-                "pose": "cross-legged",
-                "expression": "serene",
-                "action": "whispering a lullaby"
+                "pose": "mid-action",
+                "expression": "intense focus",
+                "action": "breakdancing"
             }
         }
     ]
